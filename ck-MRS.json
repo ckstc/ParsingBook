@@ -1,9 +1,20 @@
 [
-	{	  "siteName" : "有度中文",
-	  "version" : 1
-	  "baseUrl" : "https://www.yodu.org/",	  "author" : "ck",
-	  "contact" : "",	  "cookies" : {	  },	  "header" : {	  },	  "remarks" : "有app,正文有问题",	  "ruleSearch" : {
-		"url" : "https://www.yodu.org/sa",			"params" : {
+	{
+	  "siteName" : "有度中文",
+	  "version" : 1,
+	  "baseUrl" : "https://www.yodu.org/",
+	  "author" : "ck",
+	  "contact" : "",
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "remarks" : "有app,正文有问题",
+	  "ruleSearch" : {
+		"url" : "https://www.yodu.org/sa",	
+		"params" : {
 		  "searchkey" : "{keyword}",
 		  "searchtype" : "all"
 		},
@@ -13,28 +24,59 @@
 		
 		"request" : "",
 		"response" : "",
-				"bookList" : "//*[@id='imgload']/ul/li",		"bookUrl" : ".//a/@href",		"bookName" : ".//a/img/@alt",
+		
+		"bookList" : "//*[@id='imgload']/ul/li",
+		"bookUrl" : ".//a/@href",
+		"bookName" : ".//a/img/@alt",
 		"bookAuthor" : ".//em/span[2]",
-				"ruleExtra" : {		  "imageUrl" : ".//a/img/@src",
+		
+		"ruleExtra" : {
+		  "imageUrl" : ".//a/img/@src",
 		  "lastChapterName" : ".//p[2]/span/a/text()",
 		  "lastUpdateTime" : "",
-		  "introduce" : ".//p[1]/text()",		  "classify" : ".//em/span[1]",		  "status" : "",
-		  "bookSize" : ""		},	  },	  "ruleChapter" : {		"method" : "GET",
-		"engine" : "xpath",		"encode" : "utf-8",
+		  "introduce" : ".//p[1]/text()",
+		  "classify" : ".//em/span[1]",
+		  "status" : "",
+		  "bookSize" : ""
+		},
+	  },
+	  "ruleChapter" : {
+		"method" : "GET",
+		"engine" : "xpath",
+		"encode" : "utf-8",
 		
 		"request" : "",
 		"response" : "",
 		
-		"list" : "//*[@id='chapterList']/li",		"name" : ".//a/text()",		"url" : ".//a/@href"
-				"ruleExtra" : {		  "imageUrl" : "",		  "lastChapterName" : "",		  "lastUpdateTime" : "//*[@id='Contents']/div[1]/p/small",
+		"list" : "//*[@id='chapterList']/li",
+		"name" : ".//a/text()",
+		"url" : ".//a/@href"
+		
+		"ruleExtra" : {
+		  "imageUrl" : "",
+		  "lastChapterName" : "",
+		  "lastUpdateTime" : "//*[@id='Contents']/div[1]/p/small",
 		  "introduce" : "",
-		  "classify" : "",		  "status" : "/html/body/div/div[3]/div/div/div[2]/p/strong[3]/span",
-		  "bookSize" : ""		},	  },	  "ruleContent" : {		"method" : "GET",
-		"engine" : "xpath",		"encode" : "utf-8",
-				"request" : "",
+		  "classify" : "",
+		  "status" : "/html/body/div/div[3]/div/div/div[2]/p/strong[3]/span",
+		  "bookSize" : ""
+		},
+	  },
+	  "ruleContent" : {
+		"method" : "GET",
+		"engine" : "xpath",
+		"encode" : "utf-8",
+		
+		"request" : "",
 		"response" : "",
-				"lines" : "//*[@id='TextContent']/p/text()",		"page" : "",		"next" : "//*[@id='readbg']/p/a[text()='-->']",				
-		"cleaner" : ""	  }	},
+		
+		"lines" : "//*[@id='TextContent']/p/text()",
+		"page" : "",
+		"next" : "//*[@id='readbg']/p/a[text()='-->']",
+				
+		"cleaner" : ""
+	  }
+	},
 	{
 	  "siteName" : "爱笔楼",
 	  "version" : 2
