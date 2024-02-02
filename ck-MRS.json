@@ -1,135 +1,215 @@
 [
 	{
-	  "siteName" : "有度中文",
-	  "version" : 1,
-	  "baseUrl" : "https://www.yodu.org/",
-	  "author" : "ck",
+	  "author" : "steve",
 	  "contact" : "",
 	  "cookies" : {
+
 	  },
 	  "header" : {
+
 	  },
-	  "remarks" : "有app,正文有问题",
-	  "ruleSearch" : {
-		"url" : "https://www.yodu.org/sa",
-		"params" : {
-		  "searchkey" : "{keyword}",
-		  "searchtype" : "all"
-		},
-		"method" : "POST",
-		"engine" : "xpath",
-		"encode" : "utf-8",
-		"request" : "",
-		"response" : "",
-		"bookList" : "//*[@id='imgload']/ul/li",
-		"bookUrl" : ".//a/@href",
-		"bookName" : ".//a/img/@alt",
-		"bookAuthor" : ".//em/span[2]",
-		"ruleExtra" : {
-		  "imageUrl" : ".//a/img/@src",
-		  "lastChapterName" : ".//p[2]/span/a/text()",
-		  "lastUpdateTime" : "",
-		  "introduce" : ".//p[1]/text()",
-		  "classify" : ".//em/span[1]",
-		  "status" : "",
-		  "bookSize" : ""
-		},
-	  },
+	  "host" : "http:\/\/m.szwu.net\/",
+	  "remarks" : "",
 	  "ruleChapter" : {
-		"method" : "GET",
-		"engine" : "xpath",
-		"encode" : "utf-8",
-		"request" : "",
-		"response" : "",
-		"list" : "//*[@id='chapterList']/li",
-		"name" : ".//a/text()",
-		"url" : ".//a/@href"
-		"ruleExtra" : {
-		  "imageUrl" : "",
-		  "lastChapterName" : "",
-		  "lastUpdateTime" : "//*[@id='Contents']/div[1]/p/small",
-		  "introduce" : "",
-		  "classify" : "",
-		  "status" : "/html/body/div/div[3]/div/div/div[2]/p/strong[3]/span",
-		  "bookSize" : ""
-		},
-	},
+	    "chapterList" : "\/\/*[@class='book_last'][2]\/dl\/dd\/a",
+	    "chapterName" : ".\/\/text()",
+	    "chapterUrl" : ".\/\/@href",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+	    "ruleExtra" : {
+	      "bookSize" : "",
+	      "classify" : "",
+	      "coverUrl" : "",
+	      "introduce" : "",
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+	      "status" : ""
+	    }
+	  },
 	  "ruleContent" : {
-		"method" : "GET",
-		"engine" : "xpath",
-		"encode" : "utf-8",
-		"request" : "",
-		"response" : "",
-		"lines" : "//*[@id='TextContent']/p/text()",
-		"page" : "",
-		"next" : "//*[@id='readbg']/p/a[text()='-->']",
-		"cleaner" : ""
-	  }
+	    "cleaner" : "\\(第(.*)\\)",
+	    "contents" : "\/\/div\/text()",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "@js: var v = html.match(\/20px;\">(.*)\/); return '<div>' + v[1].replace(\/<\\\/br>\/g, '<br>') + '<\/div>';",
+	    "responseEncode" : "utf-8"
+	  },
+	  "ruleSearch" : {
+	    "bookAuthor" : ".\/\/*[@class='author']\/a\/text()",
+	    "bookList" : "\/\/*[@class='bookbox']",
+	    "bookName" : ".\/\/*[@class='bookname']\/a\/text()",
+	    "bookUrl" : ".\/\/*[@class='bookname']\/a\/@href",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "params" : {
+
+	    },
+	    "preRequests" : [
+	      {
+	        "header" : {
+
+	        },
+	        "method" : "POST",
+	        "params" : {
+	          "act" : "hztopy",
+	          "s" : "@get{keyword}"
+	        },
+	        "requestEncode" : "",
+	        "response" : {
+	          "engine" : "jsonpath",
+	          "put" : {
+	            "key" : "$.data"
+	          }
+	        },
+	        "responseEncode" : "",
+	        "url" : "http:\/\/m.szwu.net\/pinyin.html"
+	      },
+	      {
+	        "header" : {
+
+	        },
+	        "method" : "GET",
+	        "params" : {
+
+	        },
+	        "requestEncode" : "",
+	        "response" : {
+	          "engine" : "xpath",
+	          "put" : {
+	            "searchUrl" : "\/\/text()<js>var url = value.match(\/\\$url=curhost\\+'\\\/(.*?)'\\+res.data;\/); return config.host + (url ? url[1] : '') + '@get{key}';<\/js>"
+	          }
+	        },
+	        "responseEncode" : "",
+	        "url" : "http:\/\/m.szwu.net\/js\/common.js"
+	      }
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+	    "ruleExtra" : {
+	      "bookSize" : "",
+	      "classify" : ".\/\/*[@class='cat']\/text()",
+	      "coverUrl" : ".\/\/*[@class='bookimg']\/a\/img\/@src",
+	      "introduce" : "",
+	      "lastChapterName" : ".\/\/*[@class='update']\/a\/text()",
+	      "lastUpdateTime" : "",
+	      "status" : ""
+	    },
+	    "url" : "@get{searchUrl}"
+	  },
+	  "siteName" : "39小说（前置请求示例）",
+	  "version" : 5
 	},
 	{
-	  "siteName" : "爱笔楼",
-	  "version" : 2
-	  "baseUrl" : "http://www.ibiquzw.info/",
 	  "author" : "ck",
 	  "contact" : "",
 	  "cookies" : {
+
 	  },
 	  "header" : {
+
 	  },
+	  "host" : "https:\/\/www.bqgbi.cc\/",
 	  "remarks" : "",
-	  "ruleSearch" : {
-		"url" : "http://www.ibiquzw.info/search.html",
-		"params" : {
-		  "name" : "{keyword}"
-		},
-		"method" : "GET",
-		"engine" : "xpath",
-		"encode" : "utf-8",
-		"request" : "",
-		"response" : "",
-		"bookList" : "//*[@class='novelslist2']/ul/li[position()>1]",
-		"bookUrl" : ".//span[2]/a/@href",
-		"bookName" : ".//span[2]/a/text()",
-		"bookAuthor" : ".//span[3]/a/text()",
-		"ruleExtra" : {
-		  "imageUrl" : ".//span[2]/a/@href<js>let bookId=value.split('/')[1];let id1=bookId.split('_')[0];let id2=bookId.split('_')[1];let coverUrl = config.host.concat('files/article/image/',id1,'/',id2,'/',id2,'s.jpg');return coverUrl;</js>",
-		  "lastChapterName" : ".//span[4]/a/text()",
-		  "lastUpdateTime" : ".//span[5]/text()",
-		  "introduce" : "",
-		  "classify" : "",
-		  "status" : "",
-		  "bookSize" : ""
-		},
-	  },
 	  "ruleChapter" : {
-		"method" : "GET",
-		"engine" : "xpath",
-		"encode" : "utf-8",
-		"request" : "",
-		"response" : "@js:html = html.replace(/最后更新：/g,'');return html;",
-		"list" : "//*[@id='list']/dl/dt[contains(.,'正文')]/following::dd",
-		"name" : ".//a/text()",
-		"url" : ".//a/@href"
-		"ruleExtra" : {
-		  "imageUrl" : "//*[@id='fmimg']/img/@src",
-		  "lastChapterName" : "//*[@id='info']/p[4]/a/text()",
-		  "lastUpdateTime" : "//*[@id='info']/p[3]/text()",
-		  "introduce" : "//*[@id='intro']",
-		  "classify" : "",
-		  "status" : "",
-		  "bookSize" : ""
-		},
+	    "chapterList" : "\/\/*[@class='listmain']\/\/dd\/a",
+	    "chapterName" : ".\/\/text()",
+	    "chapterUrl" : ".\/\/@href",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+	    "ruleExtra" : {
+	      "bookSize" : "",
+	      "classify" : "",
+	      "coverUrl" : "",
+	      "introduce" : "",
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+	      "status" : ""
+	    }
 	  },
 	  "ruleContent" : {
-		"method" : "GET",
-		"engine" : "xpath",
-		"encode" : "utf-8",
-		"request" : "",
-		"response" : "",
-		"lines" : "//*[@id='content']/text()",
-		"page" : "",
-		"next" : "",
-		"cleaner" : ""
-	  }
+	    "cleaner" : "\\(第(.*)\\)",
+	    "contents" : "\/\/*[@id=\"chaptercontent\"]\/text()",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "@js:\nhtml=html.replace(\/^第.*?章.*?|请收藏本站.*?|^txt.*?\/gm,\"\");return html;",
+	    "responseEncode" : "utf-8"
+	  },
+	  "ruleSearch" : {
+	    "bookAuthor" : "author",
+	    "bookList" : "$.*",
+	    "bookName" : "articlename",
+	    "bookUrl" : "url_list",
+	    "engine" : "jsonpath",
+	    "method" : "GET",
+	    "params" : {
+	      "q" : "{keyword}"
+	    },
+	    "preRequests" : [
+	      {
+	        "header" : {
+
+	        },
+	        "method" : "GET",
+	        "params" : {
+	          "q" : "@get{keyword}"
+	        },
+	        "requestEncode" : "",
+	        "response" : {
+	          "engine" : "xpath",
+	          "put" : {
+	            "key" : " "
+	          }
+	        },
+	        "responseEncode" : "",
+	        "url" : "https:\/\/www.bqgbi.cc\/user\/hm.html"
+	      }
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+	    "ruleExtra" : {
+	      "bookSize" : "",
+	      "classify" : "",
+	      "coverUrl" : "url_img",
+	      "introduce" : "intro",
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+	      "status" : ""
+	    },
+	    "url" : "https:\/\/www.bqgbi.cc\/user\/search.html"
+	  },
+	  "siteName" : "笔趣阁bi",
+	  "version" : 5
 	}
 ]
