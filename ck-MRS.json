@@ -215,40 +215,66 @@
 	{
 	  "author" : "ck",
 	  "contact" : "",
+	  "siteName" : "烈火中文[搜索限制30s]",
+	  "host" : "https://www.changyexiaoshuo.com/",
+	  "version" : 1,
+	  "remarks" : "",	  
 	  "cookies" : {
 
 	  },
 	  "header" : {
 
 	  },
-	  "host" : "https://www.changyexiaoshuo.com/",
-	  "remarks" : "",
-	  "ruleChapter" : {
-	    "chapterList" : "/html/body/div/div[6]/div[1]/div[2]/ul/li/a",
-	    "chapterName" : ".//text()",
-	    "chapterUrl" : "${bookUrl}{{.//@href}}",
+	  "ruleSearch" : {
+	    "url" : "https://www.liehuozw.com/modules/article/search.php",
 	    "engine" : "xpath",
-	    "method" : "GET",
-	    "preRequests" : [
-
-	    ],
+	    "method" : "POST",
+	    "params" : {
+	      "searchkey" : "{keyword}"
+	    },
 	    "request" : "",
 	    "requestEncode" : "gbk",
 	    "response" : "",
 	    "responseEncode" : "gbk",
+		"bookList" : "//tr[position()>1]",
+		"bookName" : ".//td[1]",
+	    "bookUrl" : ".//td[1]/a/@href",
+	    "bookAuthor" : ".//td[3]",
 	    "ruleExtra" : {
-	      "bookSize" : "",
-	      "classify" : "",
-	      "coverUrl" : "/html/body/div/div[3]/div/div[1]/img/@src",
-	      "introduce" : "/html/body/div/div[3]/div/div[2]/p[3]/text()",
+	      "coverUrl" : "",
+		  "lastChapterName" : ".//td[2]/a",
+	      "lastUpdateTime" : ".//td[5]",
+		  "introduce" : "",
+		  "classify" : "",
+		  "bookSize" : ".//td[4]",
+		  "status" : ".//td[6]"
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "gbk",
+	    "response" : "",
+	    "responseEncode" : "gbk",
+		"chapterList" : "/html/body/div/div[6]/div[1]/div[2]/ul/li/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : "${bookUrl}{{.//@href}}",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "/html/body/div/div[3]/div/div[1]/img/@src",	      
 	      "lastChapterName" : "",
 	      "lastUpdateTime" : "",
+		  "introduce" : "/html/body/div/div[3]/div/div[2]/p[3]/text()",
+		  "classify" : "",
+	      "bookSize" : "",
 	      "status" : ""
 	    }
 	  },
 	  "ruleContent" : {
-	    "cleaner" : "",
-	    "contents" : "//*[@id='articlecontent']/text()",
+	    
 	    "engine" : "xpath",
 	    "method" : "GET",
 	    "next" : "",
@@ -259,34 +285,9 @@
 	    "request" : "",
 	    "requestEncode" : "gbk",
 	    "response" : "",
-	    "responseEncode" : "gbk"
-	  },
-	  "ruleSearch" : {
-	    "bookAuthor" : ".//td[3]",
-	    "bookList" : "//tr[position()>1]",
-	    "bookName" : ".//td[1]",
-	    "bookUrl" : ".//td[1]/a/@href",
-	    "engine" : "xpath",
-	    "method" : "POST",
-	    "params" : {
-	      "searchkey" : "{keyword}"
-	    },
-	    "request" : "",
-	    "requestEncode" : "gbk",
-	    "response" : "",
 	    "responseEncode" : "gbk",
-	    "ruleExtra" : {
-	      "bookSize" : ".//td[4]",
-	      "classify" : "",
-	      "coverUrl" : "",
-	      "introduce" : "",
-	      "lastChapterName" : ".//td[2]/a",
-	      "lastUpdateTime" : ".//td[5]",
-	      "status" : ".//td[6]"
-	    },
-	    "url" : "https://www.liehuozw.com/modules/article/search.php"
-	  },
-	  "siteName" : "烈火中文[搜索限制30s]",
-	  "version" : 1
+		"contents" : "//*[@id='articlecontent']/text()",
+		"cleaner" : ""
+	  }
 	}
 ]
