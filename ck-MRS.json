@@ -226,7 +226,7 @@
 	  "ruleChapter" : {
 	    "chapterList" : "/html/body/div/div[6]/div[1]/div[2]/ul/li/a",
 	    "chapterName" : ".//text()",
-	    "chapterUrl" : ".//@href",
+	    "chapterUrl" : "${bookUrl}{{.//@href}}",
 	    "engine" : "xpath",
 	    "method" : "GET",
 	    "preRequests" : [
@@ -235,7 +235,7 @@
 	    "request" : "",
 	    "requestEncode" : "gbk",
 	    "response" : "",
-	    "responseEncode" : "utf-8",
+	    "responseEncode" : "gbk",
 	    "ruleExtra" : {
 	      "bookSize" : "",
 	      "classify" : "",
@@ -259,11 +259,11 @@
 	    "request" : "",
 	    "requestEncode" : "gbk",
 	    "response" : "",
-	    "responseEncode" : "utf-8"
+	    "responseEncode" : "gbk"
 	  },
 	  "ruleSearch" : {
 	    "bookAuthor" : ".//td[3]",
-	    "bookList" : "//*[@id='author']/tbody//tr[position()>1]",
+	    "bookList" : "//tr[position()>1]",
 	    "bookName" : ".//td[1]",
 	    "bookUrl" : ".//td[1]/a/@href",
 	    "engine" : "xpath",
@@ -271,15 +271,10 @@
 	    "params" : {
 	      "searchkey" : "{keyword}"
 	    },
-	    "preRequests" : [
-	      {
-
-	      }
-	    ],
 	    "request" : "",
 	    "requestEncode" : "gbk",
 	    "response" : "",
-	    "responseEncode" : "utf-8",
+	    "responseEncode" : "gbk",
 	    "ruleExtra" : {
 	      "bookSize" : ".//td[4]",
 	      "classify" : "",
