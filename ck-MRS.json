@@ -289,5 +289,84 @@
 		"contents" : "//*[@id='articlecontent']/text()",
 		"cleaner" : ""
 	  }
+	},
+	{
+	  "siteName" : "笔趣阁glw-cmq",
+	  "host" : "https://www.glw-cmq.com/",
+	  "author" : "ck",
+	  "contact" : "",	  
+	  "version" : 1,
+	  "remarks" : "",	  
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "ruleSearch" : {
+	    "url" : "https://www.glw-cmq.com/search/",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "params" : {
+	      "searchkey" : "{keyword}",
+		  "searchtype" : "all"
+	    },
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+		"bookList" : "//tr[position()>1]",
+		"bookName" : ".//td[1]",
+	    "bookUrl" : ".//td[1]/a/@href",
+	    "bookAuthor" : ".//td[3]",
+	    "ruleExtra" : {
+	      "coverUrl" : "",
+		  "lastChapterName" : ".//td[2]/a",
+	      "lastUpdateTime" : ".//td[4]",
+		  "introduce" : "",
+		  "classify" : "",
+		  "bookSize" : "",
+		  "status" : ".//td[5]"
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+		"chapterList" : "//*[@id='list-chapterAll']/dl/dd/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "/html/body/div[2]/div[1]/div/div/div[1]/img/@src",	      
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "//*[@id='bookIntro']/P/text()",
+		  "classify" : "",
+	      "bookSize" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+		"contents" : "//*[@id='TextContent']/text()",
+		"cleaner" : ""
+	  }
 	}
 ]
