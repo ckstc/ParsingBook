@@ -211,5 +211,87 @@
 	  },
 	  "siteName" : "笔趣阁bi",
 	  "version" : 5
+	},
+	{
+	  "author" : "ck",
+	  "contact" : "",
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "host" : "https://www.changyexiaoshuo.com/",
+	  "remarks" : "",
+	  "ruleChapter" : {
+	    "chapterList" : "/html/body/div/div[6]/div[1]/div[2]/ul/li/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "gbk",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+	    "ruleExtra" : {
+	      "bookSize" : "",
+	      "classify" : "",
+	      "coverUrl" : "/html/body/div/div[3]/div/div[1]/img/@src",
+	      "introduce" : "/html/body/div/div[3]/div/div[2]/p[3]/text()",
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    "cleaner" : "",
+	    "contents" : "//*[@id='articlecontent']/text()",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "gbk",
+	    "response" : "",
+	    "responseEncode" : "utf-8"
+	  },
+	  "ruleSearch" : {
+	    "bookAuthor" : ".//td[3]",
+	    "bookList" : "//*[@id='author']/tbody//tr[position()>1]",
+	    "bookName" : ".//td[1]",
+	    "bookUrl" : ".//td[1]/a/@href",
+	    "engine" : "xpath",
+	    "method" : "POST",
+	    "params" : {
+	      "searchkey" : "{keyword}"
+	    },
+	    "preRequests" : [
+	      {
+
+	      }
+	    ],
+	    "request" : "",
+	    "requestEncode" : "gbk",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+	    "ruleExtra" : {
+	      "bookSize" : ".//td[4]",
+	      "classify" : "",
+	      "coverUrl" : "",
+	      "introduce" : "",
+	      "lastChapterName" : ".//td[2]/a",
+	      "lastUpdateTime" : ".//td[5]",
+	      "status" : ".//td[6]"
+	    },
+	    "url" : "https://www.liehuozw.com/modules/article/search.php"
+	  },
+	  "siteName" : "烈火中文[搜索限制30s]",
+	  "version" : 1
 	}
 ]
