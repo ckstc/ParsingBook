@@ -365,7 +365,7 @@
 	    "requestEncode" : "utf-8",
 	    "response" : "",
 	    "responseEncode" : "utf-8",
-		"contents" : "//*[@id='TextContent']/text()",
+		"contents" : "//*[@id='TextContent']/p/text()",
 		"cleaner" : ""
 	  }
 	}
