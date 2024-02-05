@@ -1,121 +1,5 @@
 [
 	{
-	  "author" : "steve",
-	  "contact" : "",
-	  "cookies" : {
-
-	  },
-	  "header" : {
-
-	  },
-	  "host" : "http:\/\/m.szwu.net\/",
-	  "remarks" : "",
-	  "ruleChapter" : {
-	    "chapterList" : "\/\/*[@class='book_last'][2]\/dl\/dd\/a",
-	    "chapterName" : ".\/\/text()",
-	    "chapterUrl" : ".\/\/@href",
-	    "engine" : "xpath",
-	    "method" : "GET",
-	    "preRequests" : [
-
-	    ],
-	    "request" : "",
-	    "requestEncode" : "utf-8",
-	    "response" : "",
-	    "responseEncode" : "utf-8",
-	    "ruleExtra" : {
-	      "bookSize" : "",
-	      "classify" : "",
-	      "coverUrl" : "",
-	      "introduce" : "",
-	      "lastChapterName" : "",
-	      "lastUpdateTime" : "",
-	      "status" : ""
-	    }
-	  },
-	  "ruleContent" : {
-	    "cleaner" : "\\(第(.*)\\)",
-	    "contents" : "\/\/div\/text()",
-	    "engine" : "xpath",
-	    "method" : "GET",
-	    "next" : "",
-	    "page" : "",
-	    "preRequests" : [
-
-	    ],
-	    "request" : "",
-	    "requestEncode" : "utf-8",
-	    "response" : "@js: var v = html.match(\/20px;\">(.*)\/); return '<div>' + v[1].replace(\/<\\\/br>\/g, '<br>') + '<\/div>';",
-	    "responseEncode" : "utf-8"
-	  },
-	  "ruleSearch" : {
-	    "bookAuthor" : ".\/\/*[@class='author']\/a\/text()",
-	    "bookList" : "\/\/*[@class='bookbox']",
-	    "bookName" : ".\/\/*[@class='bookname']\/a\/text()",
-	    "bookUrl" : ".\/\/*[@class='bookname']\/a\/@href",
-	    "engine" : "xpath",
-	    "method" : "GET",
-	    "params" : {
-
-	    },
-	    "preRequests" : [
-	      {
-	        "header" : {
-
-	        },
-	        "method" : "POST",
-	        "params" : {
-	          "act" : "hztopy",
-	          "s" : "@get{keyword}"
-	        },
-	        "requestEncode" : "",
-	        "response" : {
-	          "engine" : "jsonpath",
-	          "put" : {
-	            "key" : "$.data"
-	          }
-	        },
-	        "responseEncode" : "",
-	        "url" : "http:\/\/m.szwu.net\/pinyin.html"
-	      },
-	      {
-	        "header" : {
-
-	        },
-	        "method" : "GET",
-	        "params" : {
-
-	        },
-	        "requestEncode" : "",
-	        "response" : {
-	          "engine" : "xpath",
-	          "put" : {
-	            "searchUrl" : "\/\/text()<js>var url = value.match(\/\\$url=curhost\\+'\\\/(.*?)'\\+res.data;\/); return config.host + (url ? url[1] : '') + '@get{key}';<\/js>"
-	          }
-	        },
-	        "responseEncode" : "",
-	        "url" : "http:\/\/m.szwu.net\/js\/common.js"
-	      }
-	    ],
-	    "request" : "",
-	    "requestEncode" : "utf-8",
-	    "response" : "",
-	    "responseEncode" : "utf-8",
-	    "ruleExtra" : {
-	      "bookSize" : "",
-	      "classify" : ".\/\/*[@class='cat']\/text()",
-	      "coverUrl" : ".\/\/*[@class='bookimg']\/a\/img\/@src",
-	      "introduce" : "",
-	      "lastChapterName" : ".\/\/*[@class='update']\/a\/text()",
-	      "lastUpdateTime" : "",
-	      "status" : ""
-	    },
-	    "url" : "@get{searchUrl}"
-	  },
-	  "siteName" : "39小说（前置请求示例）",
-	  "version" : 5
-	},
-	{
 	  "author" : "ck",
 	  "contact" : "",
 	  "cookies" : {
@@ -368,5 +252,125 @@
 		"contents" : "//*[@id='TextContent']/p/text()",
 		"cleaner" : ""
 	  }
-	}
+	},
+	{
+		"author" : "ck",
+		"contact" : "",
+		"cookies" : {
+	  
+		},
+		"header" : {
+	  
+		},
+		"host" : "https://www.sealib.cc/",
+		"remarks" : "聚合站[未完成]",
+		"ruleSearch" : {
+		  "bookAuthor" : ".//span[2]/a",
+		  "bookList" : "//*[@class='SHsectionThree-middle']/p[position() mod 2 != 0]",
+		  "bookName" : ".//span[1]/a<js>value=value.replace('《','').replace('》','');return value;</js>",
+		  "bookUrl" : ".//span[1]/a/@href",
+		  "engine" : "xpath",
+		  "method" : "GET",
+		  "params" : {
+	  
+		  },
+		  "preRequests" : [
+	  
+		  ],
+		  "request" : "@js:\nconfig['url'] = 'https://www.sealib.cc/s/'+config.keyword;\nreturn config;",
+		  "requestEncode" : "utf-8",
+		  "response" : "",
+		  "responseEncode" : "utf-8",
+		  "ruleExtra" : {
+			"bookSize" : "",
+			"classify" : "",
+			"coverUrl" : "",
+			"introduce" : "",
+			"lastChapterName" : "",
+			"lastUpdateTime" : "",
+			"status" : ""
+		  },
+		  "url" : ""
+		},
+		"ruleChapter" : {
+		  "chapterList" : "",
+		  "chapterName" : "",
+		  "chapterUrl" : "",
+		  "engine" : "xpath",
+		  "method" : "GET",
+		  "preRequests" : [
+			{
+			  "header" : {
+		  
+			  },
+			  "url" : "@get{bookUrl}",
+			  "response" : {
+				"put" : {
+				  "introduce" : "//p[@id='intro']",
+				  "lastChapterName" : "//p[@class='newestChapter']/span/a",
+				  "lastUpdateTime" : "//p[@class='time']/span",
+				  "tocUrls" : "//li[@class='site']/a[2]/@href",
+				  "tocUrlsName" : "//li[@class='site']/a[2]"
+				},
+				"engine" : "xpath"
+			  },
+			  "method" : "GET",
+			  "requestEncode" : "utf-8",
+			  "params" : {
+
+			  },
+			  "responseEncode" : "utf-8"
+			},
+			{
+			  "responseEncode" : "utf-8",
+			  "url" : "@get{tocUrls[1]}",
+			  "header" : {
+		  
+			  },
+			  "requestEncode" : "",
+			  "method" : "GET",
+			  "response" : {
+				"put" : {
+				  "searchUrl" : ""
+				},
+				"engine" : "xpath"
+			  },
+			  "params" : {
+		  
+			  }
+			}
+		  ],
+		  "request" : "",
+		  "requestEncode" : "utf-8",
+		  "response" : "",
+		  "responseEncode" : "utf-8",
+		  "ruleExtra" : {
+			"bookSize" : "",
+			"classify" : "",
+			"coverUrl" : "",
+			"introduce" : "@get{introduce}",
+			"lastChapterName" : "@get{lastChapterName}",
+			"lastUpdateTime" : "@get{lastUpdateTime}",
+			"status" : ""
+		  }
+		},
+		"ruleContent" : {
+		  "cleaner" : "",
+		  "contents" : "",
+		  "engine" : "xpath",
+		  "method" : "GET",
+		  "next" : "",
+		  "page" : "",
+		  "preRequests" : [
+	  
+		  ],
+		  "request" : "",
+		  "requestEncode" : "utf-8",
+		  "response" : "",
+		  "responseEncode" : "utf-8"
+		},
+		
+		"siteName" : "蓝海搜书",
+		"version" : 0
+	  }
 ]
