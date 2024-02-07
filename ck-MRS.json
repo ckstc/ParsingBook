@@ -684,5 +684,83 @@
 		"contents" : "//div[@id='content']/p/text()",
 		"cleaner" : ""
 	  }
+	},
+	{
+	  "author" : "ck",
+	  "contact" : "",
+	  "siteName" : "小说旗[未完成]",
+	  "host" : "https://www.xs7.com/",
+	  "version" : 1,
+	  "remarks" : "卡在了详情页链接，前置请求半残废",	  
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "ruleSearch" : {
+	    "url" : "",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "params" : {
+
+	    },
+	    "request" : "@js:\nconfig['url'] = 'http://www.baidu.com/s?ie=UTF-8&wd='+config.keyword+' site:xs7.com';\nreturn config;",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"bookList" : "//div[@class='c-container']//h3/a",
+		"bookName" : ".//text()",
+	    "bookUrl" : ".//@href",
+	    "bookAuthor" : "",
+	    "ruleExtra" : {
+	      "coverUrl" : "",
+		  "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "",
+		  "classify" : "",
+		  "bookSize" : "",
+		  "status" : ""
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"chapterList" : "",
+	    "chapterName" : "",
+	    "chapterUrl" : "",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "",	      
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "",
+		  "classify" : "",
+	      "bookSize" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"contents" : "",
+		"cleaner" : ""
+	  }
 	}
 ]
