@@ -535,7 +535,7 @@
 	  "siteName" : "bilinovel[搜索关键词为书籍详情链接]",
 	  "host" : "https://www.bilinovel.com/",
 	  "version" : 1,
-	  "remarks" : "搜索关键词例如https://www.bilinovel.com/novel/3985.html",	  
+	  "remarks" : "搜索关键词例如https://www.bilinovel.com/novel/3985.html;正文还需字体替换",	  
 	  "cookies" : {
 
 	  },
