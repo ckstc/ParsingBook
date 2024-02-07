@@ -709,9 +709,9 @@
 	    "requestEncode" : "",
 	    "response" : "",
 	    "responseEncode" : "",
-		"bookList" : "//div[@class='c-container']//h3/a",
-		"bookName" : ".//text()",
-	    "bookUrl" : ".//@href",
+		"bookList" : "//div[@id='content_left']/div[contains(@mu,'info')]",
+		"bookName" : ".//h3/a/text()",
+	    "bookUrl" : ".//@mu<js>let id=value.match(/info-(\d+)/)[1];return config.host+'/shu/'+id+'/';</js>",
 	    "bookAuthor" : "",
 	    "ruleExtra" : {
 	      "coverUrl" : "",
@@ -733,14 +733,14 @@
 	    "requestEncode" : "",
 	    "response" : "",
 	    "responseEncode" : "",
-		"chapterList" : "",
-	    "chapterName" : "",
-	    "chapterUrl" : "",	    
+		"chapterList" : "//dt[2]/following-sibling::dd/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",	  
 	    "ruleExtra" : {	      
-	      "coverUrl" : "",	      
-	      "lastChapterName" : "",
-	      "lastUpdateTime" : "",
-		  "introduce" : "",
+	      "coverUrl" : "//div[@id='maininfo']//img/@src",	      
+	      "lastChapterName" : "//div[@id='maininfo']//p[5]/a",
+	      "lastUpdateTime" : "//div[@id='maininfo']//p[4]<js>value=value.replace('更新时间：','');return value;</js>",
+		  "introduce" : "//p[@class='introtxt']<js>value=value.replace('简介:','');return value;</js>",
 		  "classify" : "",
 	      "bookSize" : "",
 	      "status" : ""
@@ -759,7 +759,87 @@
 	    "requestEncode" : "",
 	    "response" : "",
 	    "responseEncode" : "",
-		"contents" : "",
+		"contents" : "//*[@id='content']/p/text()",
+		"cleaner" : ""
+	  }
+	},
+	{
+	  "siteName" : "多多书院",
+	  "host" : "https://www.txtduo.net/",
+	  "author" : "ck",
+	  "contact" : "",	  
+	  "version" : 1,
+	  "remarks" : "",	  
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "ruleSearch" : {
+	    "url" : "https://www.txtduo.net/search.html",
+	    "engine" : "xpath",
+	    "method" : "POST",
+	    "params" : {
+	      "searchkey" : "{keyword}",
+		  "searchtype" : "all",
+		  "Submit" : ""
+	    },
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+		"bookList" : "//div[@id='alistbox']",
+		"bookName" : ".//div[@class='info']/div[@class='title']/h2/a",
+	    "bookUrl" : ".//div[@class='info']/div[@class='title']/h2/a/@href",
+	    "bookAuthor" : ".//div[@class='info']/div[@class='title']/span<js>value=value.replace('作者：','');return value;</js>",
+	    "ruleExtra" : {
+	      "coverUrl" : ".//div[@class='pic']/a/img/@src",
+		  "lastChapterName" : ".//div[@class='info']/div[@class='sys']/li/a",
+	      "lastUpdateTime" : "",
+		  "introduce" : ".//div[@class='info']/div[@class='intro']",
+		  "classify" : "",
+		  "bookSize" : "",
+		  "status" : ""
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+		"chapterList" : "//dt[2]/following-sibling::dd/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "",	      
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "//p[4]<js>value=value.replace('更新时间：','');return value;</js>",
+		  "introduce" : "",
+		  "classify" : "",
+	      "bookSize" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "utf-8",
+	    "response" : "",
+	    "responseEncode" : "utf-8",
+		"contents" : "//*[@id='content']/p/text()",
 		"cleaner" : ""
 	  }
 	}
