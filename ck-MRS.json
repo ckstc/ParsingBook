@@ -372,5 +372,83 @@
 		
 		"siteName" : "蓝海搜书",
 		"version" : 0
+	},
+	{
+	  "author" : "ck",
+	  "contact" : "",
+	  "siteName" : "51kenshu[搜索关键词为详情链接]",
+	  "host" : "https://www.51kenshu.com/",
+	  "version" : 1,
+	  "remarks" : "搜索关键词例如https://www.51kenshu.com/book/38477/",	  
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "ruleSearch" : {
+	    "url" : "@get{keyword}",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "params" : {
+
+	    },
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "@js:return html.replace(/作    者：|状    态：|最后更新：|最新章节：/g, '');",
+	    "responseEncode" : "",
+		"bookList" : "//div[@id='book']",
+		"bookName" : ".//h1",
+	    "bookUrl" : "${keyword}",
+	    "bookAuthor" : ".//div[@id='info']/p[1]",
+	    "ruleExtra" : {
+	      "coverUrl" : "",
+		  "lastChapterName" : ".//p[5]/a",
+	      "lastUpdateTime" : ".//p[4]",
+		  "introduce" : "",
+		  "classify" : "",
+		  "bookSize" : "",
+		  "status" : ".//div[@id='info']/p[2]"
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"chapterList" : "//dt[2]/following-sibling::dd/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "",	      
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "",
+		  "classify" : "",
+	      "bookSize" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"contents" : "//div[@id='content']/text()",
+		"cleaner" : ""
 	  }
+	}
 ]
