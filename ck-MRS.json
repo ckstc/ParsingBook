@@ -688,10 +688,10 @@
 	{
 	  "author" : "ck",
 	  "contact" : "",
-	  "siteName" : "小说旗[未完成]",
+	  "siteName" : "小说旗[别频繁搜索容易被ban]",
 	  "host" : "https://www.xs7.com/",
 	  "version" : 1,
-	  "remarks" : "卡在了详情页链接，前置请求半残废",	  
+	  "remarks" : "",	  
 	  "cookies" : {
 
 	  },
