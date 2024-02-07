@@ -395,12 +395,12 @@
 	    },
 	    "request" : "",
 	    "requestEncode" : "",
-	    "response" : "@js:return html.replace(/作    者：|状    态：|最后更新：|最新章节：/g, '');",
+	    "response" : "",
 	    "responseEncode" : "",
 		"bookList" : "//div[@id='book']",
 		"bookName" : ".//h1",
 	    "bookUrl" : "${keyword}",
-	    "bookAuthor" : ".//div[@id='info']/p[1]",
+	    "bookAuthor" : ".//div[@id='info']/p[1]<js>value=value.replace('作    者：','');return value;</js>",
 	    "ruleExtra" : {
 	      "coverUrl" : "",
 		  "lastChapterName" : ".//p[5]/a",
@@ -408,7 +408,7 @@
 		  "introduce" : "",
 		  "classify" : "",
 		  "bookSize" : "",
-		  "status" : ".//div[@id='info']/p[2]"
+		  "status" : ".//div[@id='info']/p[2]<js>value=value.replace('状    态：','');return value;</js>"
 	    }	    
 	  },
 	  "ruleChapter" : {
@@ -447,7 +447,7 @@
 	    "requestEncode" : "",
 	    "response" : "",
 	    "responseEncode" : "",
-		"contents" : "//div[@id='content']/text()",
+		"contents" : "//div[@id='content']/p/text()",
 		"cleaner" : ""
 	  }
 	}
