@@ -606,5 +606,83 @@
 		"contents" : "//div[@id='acontentz']/p/text()",
 		"cleaner" : ""
 	  }
+	},
+	{
+	  "author" : "ck",
+	  "contact" : "",
+	  "siteName" : "蓝海中文网[搜索关键词为书籍详情链接]",
+	  "host" : "https://www.lanhaizw.com/",
+	  "version" : 1,
+	  "remarks" : "搜索关键词例如https://www.lanhaizw.com/bqgfs/02265976601/;搜索和正文都有验证码，无解",	  
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "ruleSearch" : {
+	    "url" : "@get{keyword}",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "params" : {
+
+	    },
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"bookList" : "//div[@class='box_con'][1]",
+		"bookName" : ".//h1",
+	    "bookUrl" : "${keyword}",
+	    "bookAuthor" : ".//div[@id='info']/p[1]<js>value=value.replace('作者：','');return value;</js>",
+	    "ruleExtra" : {
+	      "coverUrl" : ".//img/@src",
+		  "lastChapterName" : ".//p[4]/a",
+	      "lastUpdateTime" : ".//div[@id='info']/p[3]<js>value=value.replace('更新时间：','');return value;</js>",
+		  "introduce" : ".//p[@class='e']",
+		  "classify" : ".//div[@id='info']/p[2]/span[1]<js>value=value.replace('类别：','');return value;</js>",
+		  "bookSize" : "",
+		  "status" : ".//div[@id='info']/p[2]/span[2]<js>value=value.replace('状态：','');return value;</js>"
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"chapterList" : "//dt[2]/following-sibling::dd/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "",	      
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "",
+		  "classify" : "",
+	      "bookSize" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"contents" : "//div[@id='content']/p/text()",
+		"cleaner" : ""
+	  }
 	}
 ]
