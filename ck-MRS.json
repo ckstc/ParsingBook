@@ -404,7 +404,7 @@
 	    "ruleExtra" : {
 	      "coverUrl" : "",
 		  "lastChapterName" : ".//p[5]/a",
-	      "lastUpdateTime" : ".//p[4]",
+	      "lastUpdateTime" : ".//p[4]<js>value=value.replace('最后更新：','');return value;</js>",
 		  "introduce" : "",
 		  "classify" : "",
 		  "bookSize" : "",
