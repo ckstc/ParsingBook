@@ -710,7 +710,7 @@
 	    "response" : "",
 	    "responseEncode" : "",
 		"bookList" : "//div[@id='content_left']/div[contains(@mu,'info')]",
-		"bookName" : ".//h3/a/text()",
+		"bookName" : ".//h3/a",
 	    "bookUrl" : ".//@mu<js>let id=value.match(/info-(\\d+)/)[1];return config.host+'shu/'+id+'/';</js>",
 	    "bookAuthor" : "",
 	    "ruleExtra" : {
