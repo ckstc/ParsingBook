@@ -540,7 +540,7 @@
 
 	  },
 	  "header" : {
-
+		"user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 Safari/604.1"
 	  },
 	  "ruleSearch" : {
 	    "url" : "@get{keyword}",
@@ -595,11 +595,11 @@
 	    "engine" : "xpath",
 	    "method" : "GET",
 	    "next" : "",
-	    "page" : "",
+	    "page" : "5",
 	    "preRequests" : [
 
 	    ],
-	    "request" : "",
+	    "request" : "@js:config['chapterUrl']=config.chapterUrl.replace('.html','').concat('_${i}.html');config['pageStart'] = 2;return config;",
 	    "requestEncode" : "",
 	    "response" : "",
 	    "responseEncode" : "",
