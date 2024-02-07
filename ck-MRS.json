@@ -402,7 +402,7 @@
 	    "bookUrl" : "${keyword}",
 	    "bookAuthor" : ".//div[@id='info']/p[1]<js>value=value.replace('作    者：','');return value;</js>",
 	    "ruleExtra" : {
-	      "coverUrl" : "",
+	      "coverUrl" : ".//div[@id='fmimg']/img/@src",
 		  "lastChapterName" : ".//p[5]/a",
 	      "lastUpdateTime" : ".//p[4]<js>value=value.replace('最后更新：','');return value;</js>",
 		  "introduce" : "",
