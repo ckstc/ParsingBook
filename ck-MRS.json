@@ -528,5 +528,83 @@
 		"contents" : "//div[@id='TextContent']/p/text()",
 		"cleaner" : ""
 	  }
+	},
+	{
+	  "author" : "ck",
+	  "contact" : "",
+	  "siteName" : "bilinovel[搜索关键词为书籍详情链接]",
+	  "host" : "https://www.bilinovel.com/",
+	  "version" : 1,
+	  "remarks" : "搜索关键词例如https://www.bilinovel.com/novel/3985.html",	  
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "ruleSearch" : {
+	    "url" : "@get{keyword}",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "params" : {
+
+	    },
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"bookList" : "//div[@class='book-detail-info']",
+		"bookName" : ".//h1[@class='book-title']",
+	    "bookUrl" : "${keyword}<js>value=value.replace('.html','').concat('/catalog');return value;</js>",
+	    "bookAuthor" : ".//span[@class='authorname']/a",
+	    "ruleExtra" : {
+	      "coverUrl" : ".//img[@class='book-cover']",
+		  "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "",
+		  "classify" : "",
+		  "bookSize" : "",
+		  "status" : ".//p[@class='book-meta book-layout-inline'][2]"
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"chapterList" : "//div[@class='catalog-volume']//li[@class='chapter-li jsChapter']/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "",	      
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "",
+		  "classify" : "",
+	      "bookSize" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"contents" : "//div[@id='acontentz']/p/text()",
+		"cleaner" : ""
+	  }
 	}
 ]
