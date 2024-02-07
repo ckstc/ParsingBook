@@ -450,5 +450,83 @@
 		"contents" : "//div[@id='content']/p/text()",
 		"cleaner" : ""
 	  }
+	},
+	{
+	  "author" : "ck",
+	  "contact" : "",
+	  "siteName" : "UU看书[搜索关键词为书籍详情链接]",
+	  "host" : "https://www.uuks5.com/",
+	  "version" : 1,
+	  "remarks" : "搜索关键词例如https://www.uuks5.com/book/795025/",	  
+	  "cookies" : {
+
+	  },
+	  "header" : {
+
+	  },
+	  "ruleSearch" : {
+	    "url" : "@get{keyword}",
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "params" : {
+
+	    },
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"bookList" : "//div[@id='bookinfo']",
+		"bookName" : ".//div[@class='d_title']",
+	    "bookUrl" : "${keyword}",
+	    "bookAuthor" : ".//span[@class='p_author']<js>value=value.replace('作者：','');return value;</js>",
+	    "ruleExtra" : {
+	      "coverUrl" : ".//div[@id='bookimg']/img/@src",
+		  "lastChapterName" : "",
+	      "lastUpdateTime" : ".//li[@id='uptime']/span",
+		  "introduce" : ".//div[@id='bookintro']/p",
+		  "classify" : "",
+		  "bookSize" : "",
+		  "status" : ".//div[@id='count']/ul/li[1]/span"
+	    }	    
+	  },
+	  "ruleChapter" : {
+	    "preRequests" : [
+
+	    ],
+		"engine" : "xpath",
+	    "method" : "GET",
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"chapterList" : "//ul[@id='chapterList']/li/a",
+	    "chapterName" : ".//text()",
+	    "chapterUrl" : ".//@href",	    
+	    "ruleExtra" : {	      
+	      "coverUrl" : "",	      
+	      "lastChapterName" : "",
+	      "lastUpdateTime" : "",
+		  "introduce" : "",
+		  "classify" : "",
+	      "bookSize" : "",
+	      "status" : ""
+	    }
+	  },
+	  "ruleContent" : {
+	    
+	    "engine" : "xpath",
+	    "method" : "GET",
+	    "next" : "",
+	    "page" : "",
+	    "preRequests" : [
+
+	    ],
+	    "request" : "",
+	    "requestEncode" : "",
+	    "response" : "",
+	    "responseEncode" : "",
+		"contents" : "//div[@id='TextContent']/p/text()",
+		"cleaner" : ""
+	  }
 	}
 ]
